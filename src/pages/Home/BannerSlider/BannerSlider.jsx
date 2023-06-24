@@ -10,38 +10,38 @@ const slider = [
         id: 1,
         title: "Spoken Hindi",
         description: "Master spoken English with our comprehensive course, boosting your fluency, vocabulary, and communication skills.",
-        url: "https://i.ibb.co/ctnKJ2m/card-horizantal.png"
+        url: "https://i.ibb.co/w4g5s5k/Japanese-Horizantal.png"
     },
     {
         id: 2,
         title: "Spoken Arabic",
         description: "Master spoken English with our comprehensive course, boosting your fluency, vocabulary, and communication skills.",
-        url: "https://i.ibb.co/ctnKJ2m/card-horizantal.png"
+        url: "https://i.ibb.co/w4g5s5k/Japanese-Horizantal.png"
     },
     {
         id: 3,
         title: "Spoken Chinese",
         description: "Master spoken English with our comprehensive course, boosting your fluency, vocabulary, and communication skills.",
-        url: "https://i.ibb.co/ctnKJ2m/card-horizantal.png"
+        url: "https://i.ibb.co/w4g5s5k/Japanese-Horizantal.png"
     },
 
     {
         id: 4,
         title: "Spoken Japanese",
         description: "Master spoken English with our comprehensive course, boosting your fluency, vocabulary, and communication skills.",
-        url: "https://i.ibb.co/ctnKJ2m/card-horizantal.png"
+        url: "https://i.ibb.co/w4g5s5k/Japanese-Horizantal.png"
     },
     {
         id: 5,
         title: "Spoken English",
         description: "Master spoken English with our comprehensive course, boosting your fluency, vocabulary, and communication skills.",
-        url: "https://i.ibb.co/ctnKJ2m/card-horizantal.png"
+        url: "https://i.ibb.co/w4g5s5k/Japanese-Horizantal.png"
     },
     {
         id: 6,
         title: "Spoken English",
         description: "Master spoken English with our comprehensive course, boosting your fluency, vocabulary, and communication skills.",
-        url: "https://i.ibb.co/ctnKJ2m/card-horizantal.png"
+        url: "https://i.ibb.co/w4g5s5k/Japanese-Horizantal.png"
     },
 ]
 const BannerSlider = () => {
