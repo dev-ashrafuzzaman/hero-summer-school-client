@@ -8,6 +8,7 @@ const NavBar = () => {
             <li className='hover:text-[#BAD650] font-semibold'><Link to='/instructors'>Instructors</Link></li>
             <li className='hover:text-[#BAD650] font-semibold'><Link to='/classes'>Classes</Link></li>
             <li className='hover:text-[#BAD650] font-semibold'><Link to={'/dashboard'}>Dashboard</Link></li>
+            <li className='hover:text-[#BAD650] font-semibold'><Link to={'/login'}>Login</Link></li>
         </>
     return (
         <div className='w-full bg-black flex justify-center items-center  fixed z-10 bg-opacity-40  '>
@@ -29,7 +30,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img className='w-12 border-2 hover:border-2 hover:border-[#EC5082] rounded-full' src="https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" alt="" />
+                    <img className='w-12 border-2 hover:border-2 hover:border-[#BAD650] rounded-full' src="https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" alt="" />
                 </div>
             </div>
         </div>
