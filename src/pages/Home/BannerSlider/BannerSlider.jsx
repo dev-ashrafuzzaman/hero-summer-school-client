@@ -54,7 +54,7 @@ const BannerSlider = () => {
                         <h1 className='text-white capitalize tracking-wide lg:text-4xl 2xl:text-5xl text-3xl font-bold  '>ヒーロー日本語学院</h1>
                         <hr />
                         <p className='text-white'>Hero Language Academy is your best option for studying Japanese. Our language and culture courses adapt to your specific goals for a completely personalized learning experience.</p>
-                        <button href="#" className='text-[#5D5E5E] uppercase border-2 border-solid border-[#5D5E5E] rounded-full mt-16 btn  w-[130px] transition  ease-in-out duration-800 hover:border-[#EC5082] hover:text-[#EC5082] hover:bg-white hover:shadow hover:shadow-[#EC5082]'>Enroll Now</button>
+                        <button href="#" className='btn uppercase border-2 border-solid bg-white  rounded-full mt-16   w-[130px] transition  ease-in-out duration-800 hover:border-[#EC5082] hover:text-[#EC5082] hover:bg-white hover:shadow hover:shadow-[#EC5082]'>Enroll Now</button>
                     </div>
                 </div>
 

@@ -3,13 +3,13 @@ const PopularClassessCard = ({ popularClass }) => {
     const { name, image, instructorName, availableSeats, price } = popularClass;
     return (
         <div>
-            <div className={`card bg-base-100 shadow-xl  ${availableSeats === 0 ? 'border-2 border-red-400' : ''}`}>
+            <div className={`card bg-base-100 shadow-xl border-2   ${availableSeats === 0 ? 'border-2 border-red-400' : 'border-white'}`}>
                 <div className='bg-red-500  pb-8 flex flex-col items-center justify-end h-[250px] rounded-2xl bg-cover' style={{
                     backgroundImage: `url(${image})`
                 }}>
                     <div>
                         <div className='flex justify-center items-center gap-4 '>
-                            <div className={`bg-white p-2 rounded-lg border-2 ${availableSeats === 0 ? 'border-red-500 bg-red-50' : ''} hover:border-2 hover:border-[#EC5082] hover:bg-[#fff2f6]`}>
+                            <div className={`bg-white p-2 rounded-lg border-2 ${availableSeats === 0 ? 'border-red-500 bg-[#fff2f6] ' : ''} hover:border-2 hover:border-[#EC5082] hover:bg-[#fff2f6]`}>
                                 <p>Available Seat:  <span className='font-bold'> {availableSeats}</span></p>
                             </div>
                             <div className='bg-white p-2 rounded-lg border-2 hover:border-2 hover:border-[#BAD650] hover:bg-[#fafdef]'>
