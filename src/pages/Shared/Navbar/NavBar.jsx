@@ -22,7 +22,8 @@ const NavBar = () => {
                             {itrem}
                         </ul>
                     </div>
-                    <img src={headerLogo} alt="" />
+                    <img className='hidden md:block' src={headerLogo} alt="" />
+                    <h3 className='block md:hidden font-bold sec-color-text text-4xl pl-2'>HLA</h3>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className=" flex justify-center items-center gap-4 mt-2 text-white ">

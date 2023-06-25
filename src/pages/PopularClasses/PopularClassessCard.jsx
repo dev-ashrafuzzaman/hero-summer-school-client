@@ -1,5 +1,3 @@
-import { FaChair } from 'react-icons/fa';
-import './PopulerClass.css'
 
 const PopularClassessCard = ({ popularClass }) => {
     const { name, image, instructorName, availableSeats, price } = popularClass;
