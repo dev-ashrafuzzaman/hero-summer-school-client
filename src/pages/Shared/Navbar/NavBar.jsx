@@ -11,7 +11,7 @@ const NavBar = () => {
             <li className='hover:text-[#BAD650] font-semibold'><Link to={'/login'}>Login</Link></li>
         </>
     return (
-        <div className='w-full bg-black flex justify-center items-center  fixed z-10 bg-opacity-40  '>
+        <div className='w-full bg-[#121220] flex justify-center items-center  fixed z-10 bg-opacity-60  '>
             <div className="navbar  max-w-screen-xl">
                 <div className="navbar-start">
                     <div className="dropdown">
