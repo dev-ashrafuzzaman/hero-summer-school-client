@@ -4,6 +4,7 @@ import PopularClasses from '../PopularClasses/PopularClasses';
 import PopulerInstructors from '../PopulerInstructors/PopulerInstructors';
 import BgVideo from '../BgVideoSection/BgVideo';
 import CallSection from '../CallSection/CallSection';
+import CountStudentSection from '../CountStudentSection/CountStudentSection';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <BgVideo></BgVideo>
             <CallSection></CallSection>
             <PopulerInstructors></PopulerInstructors>
+            <CountStudentSection></CountStudentSection>
             
         </div>
     );

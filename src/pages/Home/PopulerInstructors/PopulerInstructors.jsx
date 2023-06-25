@@ -80,11 +80,7 @@ const popularInstructor = [
 const PopulerInstructors = () => {
     return (
         <>
-            {/* style={{
-                    backgroundImage: `url(${bgimg})`
-                }} */}
-
-            <div className="bg-[#121220] py-10 md:p-10 px-2 mb-36" >
+            <div className="bg-[#121220] py-10 md:p-10 px-2 md:mb-36 mb-10" >
                 <div className="flex justify-center items-center">
                     <h3 className="divider  md:w-1/2  sec-color-text text-center md:text-4xl text-3xl mb-10  font-bold "><span className="border-2 p-2 rounded-full ">Popular Instructors</span></h3>
                 </div>
