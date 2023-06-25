@@ -11,7 +11,7 @@ const PopulerInstructorsCard = ({ instructor }) => {
     return (
         <div>
             {/* Dextop Content */}
-            <div className="hidden md:block icon-image relative h-[25px] w-[25px] md:h-[70px]  md:w-[70px] md:mx-3 mx-1 cursor-pointer shadow shadow-black bg-white rounded-full ">
+            <div className="hidden md:block icon-image relative h-[25px] w-[25px] md:h-[70px]   md:w-[70px] md:mx-3 mx-1 cursor-pointer shadow shadow-black bg-white rounded-full ">
                 <div className="icon ">
                     <img className="absolute" src={profileImg} alt="" />
                 </div>
@@ -30,7 +30,7 @@ const PopulerInstructorsCard = ({ instructor }) => {
             </div>
 
             {/* Mobile Content */}
-            <div className="blcok md:hidden card bg-base-100 shadow-xl">
+            <div className="blcok md:hidden border-2 border-white card bg-base-100 shadow-xl">
                 <div className='bg-red-500  pb-8 flex flex-col items-center justify-end h-[250px] rounded-2xl bg-cover bg-center'
                     style={{
                         backgroundImage: `url(${profileImg})`

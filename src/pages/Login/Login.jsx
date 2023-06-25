@@ -65,7 +65,7 @@ const Login = () => {
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2">
                                     <span>Remember me</span>
-                                    <input type="checkbox" onClick={() => handleOnFocusCheckBox(!focusCheckBox)} checked={focusCheckBox} className="checkbox " />
+                                    <input type="checkbox" onClick={() => handleOnFocusCheckBox(!focusCheckBox)} checked={focusCheckBox} className="checkbox" />
                                 </div>
                                 <Link><p className="main-color-text text-end">Forgot Password?</p></Link>
                             </div>
