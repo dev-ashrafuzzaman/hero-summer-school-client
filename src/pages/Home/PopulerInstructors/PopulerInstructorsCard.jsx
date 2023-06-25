@@ -22,7 +22,7 @@ const PopulerInstructorsCard = ({ instructor }) => {
                     <div className="content">
                         <div className="details">
                             <div className="name flex justify-center items-center gap-2">{name}<MdVerified className="main-color-text"></MdVerified></div>
-                            <div className="job flex justify-center items-center gap-2"><MdOutlineMail></MdOutlineMail> {email} <span className="badge badge-outline font-bold border-[#BAD650] bg-[#f7faeb]"><RiPresentationLine></RiPresentationLine> {classTaken}</span></div>
+                            <div className="job flex justify-center items-center gap-2"><MdOutlineMail></MdOutlineMail> {email} <span className="badge badge-outline font-bold border-[#BAD650] bg-[#f7faeb]"><RiPresentationLine className="text-black"></RiPresentationLine> {classTaken}</span></div>
                             <button className="badge badge-outline font-bold text-white main-color-bg">View Details</button>
                         </div>
                     </div>
