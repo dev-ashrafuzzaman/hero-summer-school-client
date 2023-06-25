@@ -64,7 +64,7 @@ const Footer = () => {
                 </div>
 
                 <div>
-                    <h1 className="md:text-3xl text-xl mb-2 font-semibold">Other</h1>
+                    <h1 className="md:text-3xl text-xl mb-2 font-semibold">Information</h1>
                     <ul>
                         <li className="hover:text-[#BAD650]">
                             <Link>Blog</Link>
@@ -87,6 +87,7 @@ const Footer = () => {
                 <div>
                     <h1 className="text-3xl mb-2 font-semibold">Contact</h1>
                     <p className="mb-4">
+                        Address: Dhaka , Bangladesh <br />
                         Phone:
                         16999 <br /> Email: help@hla.com
                     </p>

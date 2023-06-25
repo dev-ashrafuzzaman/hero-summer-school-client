@@ -69,7 +69,7 @@ const Signup = () => {
     }
     return (
         <>
-            <div className="flex justify-center bg-[#EEF2F6] p-20">
+            <div className="flex justify-center bg-[#EEF2F6] pt-28 pb-44">
                 <div className="card shadow-2xl bg-base-100 p-10 w-[700px]">
                     <div className="card-body">
                         <div className="text-center space-y-4 mb-6">
