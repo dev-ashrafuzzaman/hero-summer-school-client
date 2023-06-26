@@ -4,8 +4,13 @@ import { useForm } from "react-hook-form";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from "react-toastify";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+    const {createUser, updateProfileUser} = useAuth();
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [focusName, setFocusName] = useState(false)
     const [focusEmail, setFocusEmail] = useState(false)
@@ -51,6 +56,24 @@ const Signup = () => {
             console.log(data)
             setFocusPass(false)
             setFocusConPass(false)
+
+            // Create User ---------------
+            createUser(data.email, data.password)
+                .then(result =>{
+                    const createUserNew = result.user;
+                    console.log(createUserNew);
+                    updateProfileUser(data.name , data.photoURL)
+                    .then(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Account Created Sucessfull',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate('/')
+                    })
+                })
         } else {
             toast.error('Passwords are not same! Try again...', {
                 position: "top-right",
@@ -137,7 +160,7 @@ const Signup = () => {
                             {/* Forgot Password Area */}
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2">
-                                    <input type="checkbox" onClick={() => handleOnFocusCheckBox(!focusCheckBox)} checked={focusCheckBox} className="checkbox" />
+                                    <input type="checkbox" onChange={() => handleOnFocusCheckBox(!focusCheckBox)} checked={focusCheckBox} className="checkbox" />
                                     <span>Agree with <a className="underline hover:text-[#EC5082]" href="">Terms & Condition</a></span>
                                 </div>
                             </div>
