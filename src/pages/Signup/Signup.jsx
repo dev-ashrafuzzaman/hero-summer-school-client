@@ -136,7 +136,7 @@ const Signup = () => {
                             {errors.password?.type === 'required' && <span className=" text-red-600">Password is required</span>}
                             {errors.password?.type === 'minLength' && <span className=" text-red-600">Password must be minumum 6 characters</span>}
                             {errors.password?.type === 'maxLength' && <span className=" text-red-600">Password must be less then 20 characters</span>}
-                            {errors.password?.type === 'pattern' && <span className=" text-red-600">Password don't have a capital letter & special character</span>}
+                            {errors.password?.type === 'pattern' && <span className=" text-red-600">Password dont have a capital letter & special character</span>}
                             {/* Confirm Password */}
                             <div className={`border-2 flex justify-between items-center rounded-xl p-4  bg-[#F8FAFC] ${errors.confirmPassword && 'border-red-500 hover:border-red-500'} ${focusConPass ? 'border-[#BAD650] hover:border-[#BAD650]' : 'hover:border-black '} ${focusConPass === 'notMatch' && 'border-red-500 hover:border-red-500'}`}>
                                 <div className="w-11/12">

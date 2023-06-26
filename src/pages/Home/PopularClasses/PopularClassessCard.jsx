@@ -1,6 +1,6 @@
 
 const PopularClassessCard = ({ popularClass }) => {
-    const { name, image, instructorName, availableSeats, price } = popularClass;
+    const { name, image, instructorName, availableSeats, price ,totalEnroll } = popularClass;
     return (
         <div>
             <div className={`card bg-base-100 shadow-xl border-2   ${availableSeats === 0 ? 'border-2 border-red-400' : 'border-white'}`}>
@@ -20,7 +20,7 @@ const PopularClassessCard = ({ popularClass }) => {
                 </div>
                 <div className="card-body space-y-2">
                     <h2 className="text-3xl font-semibold">{name}</h2>
-                    <p className='text-xl text-[#5D5E5E]'>Instructor: {instructorName}</p>
+                    <p className='text-xl text-[#5D5E5E]'>Instructor: {instructorName} Total Enroll: {totalEnroll}</p>
                     <div className="card-actions justify-end">
                         <button className={`btn main-color-bg w-full font-bold text-xl text-white`} disabled={availableSeats === 0 ? true : false} >Select</button>
                     </div>
