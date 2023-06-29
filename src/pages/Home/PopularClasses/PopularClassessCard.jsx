@@ -1,4 +1,4 @@
-
+import { PiStudentBold } from 'react-icons/pi';
 const PopularClassessCard = ({ popularClass }) => {
     const { name, image, instructorName, availableSeats, price ,totalEnroll } = popularClass;
     return (
@@ -20,7 +20,8 @@ const PopularClassessCard = ({ popularClass }) => {
                 </div>
                 <div className="card-body space-y-2">
                     <h2 className="text-3xl font-semibold">{name}</h2>
-                    <p className='text-xl text-[#5D5E5E]'>Instructor: {instructorName} Total Enroll: {totalEnroll}</p>
+                    <p className='text-xl text-[#5D5E5E]'>Instructor: {instructorName}</p>
+                    <p className='text-xl flex justify-center border-2 rounded-full text-[#a4bd48] bg-[#bed26625] font-bold items-center w-[100px]'><PiStudentBold></PiStudentBold> {totalEnroll}</p>
                     <div className="card-actions justify-end">
                         <button className={`btn main-color-bg w-full font-bold text-xl text-white`} disabled={availableSeats === 0 ? true : false} >Select</button>
                     </div>
