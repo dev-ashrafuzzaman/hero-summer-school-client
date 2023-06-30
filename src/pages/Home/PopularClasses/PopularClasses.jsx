@@ -13,7 +13,7 @@ const PopularClasses = () => {
             {
                 popularClasses.map((popularClass , index) => <PopularClassessCard
                 key={index}
-                popularClass={popularClass}
+                classes={popularClass}
                 ></PopularClassessCard>)
             }
             
