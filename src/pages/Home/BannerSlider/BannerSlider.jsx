@@ -4,6 +4,7 @@ import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import './BannerSlider.css'
 import { Link } from 'react-router-dom';
+import { Fade } from "react-awesome-reveal";
 
 const slider = [
     {
@@ -51,9 +52,9 @@ const BannerSlider = () => {
                 <div className='lg:w-[100%] 2xl:w-[70%]  md:w-[50%] md:mb-0 mb-10 pt-20 lg:pt-28'>
                     <div className='carousel-content'>
                         <span className='uppercase font-xl font-bold text-white tracking-wide'>Hero Language Academy</span>
-                        <h1 className='text-white capitalize tracking-wide lg:text-4xl 2xl:text-5xl text-3xl font-bold  '>ヒーロー日本語学院</h1>
+                        <h1 className='text-white capitalize tracking-wide lg:text-4xl 2xl:text-5xl text-3xl font-bold  '><Fade  cascade damping={0.2}>ヒーロー日本語学院</Fade></h1>
                         <hr />
-                        <p className='text-white'>Hero Language Academy is your best option for studying Japanese. Our language and culture courses adapt to your specific goals for a completely personalized learning experience.</p>
+                        <p className='text-white'><Fade>Hero Language Academy is your best option for studying Japanese. Our language and culture courses adapt to your specific goals for a completely personalized learning experience.</Fade></p>
                         <button href="#" className='btn uppercase border-2 border-solid bg-white  rounded-full mt-16   w-[130px] transition  ease-in-out duration-800 hover:border-[#EC5082] hover:text-[#EC5082] hover:bg-white hover:shadow hover:shadow-[#EC5082]'>Enroll Now</button>
                     </div>
                 </div>
