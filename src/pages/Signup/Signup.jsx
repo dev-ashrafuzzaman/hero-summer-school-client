@@ -7,6 +7,7 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
     const {createUser, updateProfileUser} = useAuth();
@@ -64,14 +65,28 @@ const Signup = () => {
                     console.log(createUserNew);
                     updateProfileUser(data.name , data.photoURL)
                     .then(() => {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Account Created Sucessfull',
-                            showConfirmButton: false,
-                            timer: 1500
+                        const saveUser = { name: data.name, email: data.email , role:"student", image: data.photoURL }
+                        fetch('http://localhost:5000/users', {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
                         })
-                        navigate('/')
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Your Account has been Create Sucessfull',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    navigate('/')
+                                }
+                            })
+
                     })
                 })
         } else {
@@ -92,6 +107,9 @@ const Signup = () => {
     }
     return (
         <>
+        <Helmet>
+            <title>HLA | Sign up</title>
+        </Helmet>
             <div className="flex justify-center bg-[#EEF2F6] pt-28 pb-44">
                 <div className="card shadow-2xl bg-base-100 p-10 w-[700px]">
                     <div className="card-body">

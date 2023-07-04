@@ -14,15 +14,27 @@ const SocialLogin = () => {
         googleSigninUser()
             .then(result => {
                 const logginUser = result.user;
-                console.log(logginUser);
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Login Sucessfull',
-                    showConfirmButton: false,
-                    timer: 1500
+                const saveUser = { name: logginUser.displayName, email: logginUser.email , role: "student" , image: logginUser.photoURL }
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
                 })
-                navigate(from, { replace: true });
+                    .then(res => res.json())
+                    .then(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Login Sucessfull',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate(from, { replace: true });
+
+                    })
+
             })
     }
 

@@ -3,12 +3,24 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useSelected from '../../../hooks/useSelected';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { ToastContainer, toast } from 'react-toastify';
+import useEnrolled from '../../../hooks/useEnrolled';
+import useAdmin from '../../../hooks/useAdmin';
+import useInstructor from '../../../hooks/useInstructor';
 const PopularClassessCard = ({ classes }) => {
-    const { name, image, instructorName, availableSeats, price ,totalEnroll } = classes;
+    const { name, image, instructorName, availableSeats, price, totalEnroll, _id } = classes;
+    const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const [, refetch] = useSelected();
-    const {user} = useAuth();
+    const [selected, refetch] = useSelected();
+    const [enrolled] = useEnrolled();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+
+    const enrolledClassIds = new Set(
+        enrolled.flatMap((enrollment) => enrollment.classes)
+    );
+
 
     const handleSelected = classes => {
         if (user && user.email) {
@@ -21,31 +33,68 @@ const PopularClassessCard = ({ classes }) => {
                 email: user.email
             };
 
-            fetch('http://localhost:5000/selected', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(selectClasses)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.insertedId) {
-                        console.log(classes);
-                        refetch()
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Class add to select',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Handle error case
+            const selectOneCless = selected?.find(selectOne => selectOne.classesId === _id);
+
+            const filteredClasses = [classes].find((myClass) =>
+            enrolledClassIds.has(myClass._id)
+        );
+       
+
+            if (filteredClasses?._id === _id) {
+                toast.warn('Already Enrolled Check dashboard.', {
+                    position: "bottom-center",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
                 });
+                return
+
+            } 
+             if (selectOneCless?.classesId === _id) {
+                toast.warn('Already selected Check dashboard.', {
+                    position: "bottom-center",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            }
+            else {
+                fetch('http://localhost:5000/selected', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(selectClasses)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            refetch()
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Class add to select',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Handle error case
+                    });
+            }
+
+
+
         } else {
             Swal.fire({
                 title: 'Please login then add to select!',
@@ -84,10 +133,11 @@ const PopularClassessCard = ({ classes }) => {
                     <p className='text-xl text-[#5D5E5E]'>Instructor: {instructorName}</p>
                     <p className='text-xl flex justify-center border-2 rounded-full text-[#a4bd48] bg-[#bed26625] font-bold items-center w-[100px]'><PiStudentBold></PiStudentBold> {totalEnroll}</p>
                     <div className="card-actions justify-end">
-                        <button onClick={() => handleSelected(classes)} className={`btn main-color-bg w-full font-bold text-xl text-white`} disabled={availableSeats === 0 ? true : false} >Select</button>
+                        <button onClick={() => handleSelected(classes)} className={`btn main-color-bg w-full font-bold text-xl text-white`} disabled={availableSeats === 0 ? true : isAdmin || isInstructor ? true : false} >Select</button>
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

@@ -6,6 +6,7 @@ import useSelected from '../../../../hooks/useSelected';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { FaRegWindowRestore } from 'react-icons/fa';
+import SectionTitle from '../../../../components/SocialLogin/SectionTitle/SectionTitle';
 
 
 const CheckoutFrom = ({ selected, price }) => {
@@ -89,13 +90,15 @@ const CheckoutFrom = ({ selected, price }) => {
                 email: user?.email,
                 transactionId,
                 price,
+                progress: 0,
                 date: new Date(),
                 quantity: selected.length,
                 selectedClasses: selected.map(myClass => myClass._id),
                 classes: selected.map(myClass => myClass.classesId),
-                status: 'pending',
+                status: 'success',
                 className: selected.map(myClass => myClass.name)
             }
+          
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data)
@@ -108,7 +111,7 @@ const CheckoutFrom = ({ selected, price }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        navigate('/dashboard/payment-history')
+                        navigate('/dashboard/student/payment-history')
                     }
                 })
         }
@@ -118,6 +121,7 @@ const CheckoutFrom = ({ selected, price }) => {
 
     return (
         <>
+        <SectionTitle heading={"Please Payment"}></SectionTitle>
             <form className="w-1/2 m-20 bg-green-50 mx-auto p-10 rounded-lg" onSubmit={handleSubmit}>
                 <CardElement
                     options={{
@@ -145,6 +149,9 @@ const CheckoutFrom = ({ selected, price }) => {
             {
                 sucessMessage && <p className=" flex justify-center items-center gap-2 text-green-500 font-semibold w-1/2 m-20 bg-green-50 mx-auto p-10 rounded-lg"><FaRegWindowRestore></FaRegWindowRestore>{sucessMessage}</p>
             }
+            <div className='flex justify-center '>
+                <p className='font-bold text-[#EC5082]'>Demo Card: <span className='font-semibold text-black'>4242 4242 4242 4242</span></p>
+            </div>
         </>
     );
 };

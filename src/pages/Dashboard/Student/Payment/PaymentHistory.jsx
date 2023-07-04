@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import usePayment from '../../../../hooks/usePayment';
+import usePayment from "../../../../hooks/usePayment";
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../../components/SocialLogin/SectionTitle/SectionTitle";
 
@@ -15,16 +15,12 @@ const PaymentHistory = () => {
     }, [payments]);
 
 
-
-
     return (
         <div className="w-full py-10 px-10">
             <Helmet>
                 <title>Dashboard | Payment History</title>
             </Helmet>
-            <SectionTitle
-                heading={'Payment History'}
-            ></SectionTitle>
+            <SectionTitle heading={"Payment History"}></SectionTitle>
 
             <div className="overflow-x-auto rounded-s-2xl rounded-e-2xl">
                 <table className="table">
@@ -32,11 +28,9 @@ const PaymentHistory = () => {
                     <thead className="bg-[#EC5082] text-white uppercase font-bold  ">
                         <tr>
                             <th>
-                                <label>
-                                    #
-                                </label>
+                                <label>#</label>
                             </th>
-                            <th>Class Name</th>
+                            <th>Transaction Id</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
                             <th>Status</th>
@@ -44,19 +38,18 @@ const PaymentHistory = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            sortedPayments.map((myClass, index) => <tr className="hover:bg-[#ec508113]"
+                        {sortedPayments.map((myClass, index) => (
+                            <tr
+                                className="hover:bg-[#ec508113]"
                                 key={myClass._id}
                             >
                                 <th>
-                                    <label>
-                                        {index + 1}
-                                    </label>
+                                    <label>{index + 1}</label>
                                 </th>
                                 <td>
-                                    <div className="font-bold ">{myClass.className.map((className, index) => <li key={index}>{className}</li>)
-
-                                    }</div>
+                                    <div className="font-bold ">
+                                        {myClass.transactionId}
+                                    </div>
                                 </td>
                                 <td>
                                     <div className="font-bold ">{myClass.quantity}</div>
@@ -68,12 +61,16 @@ const PaymentHistory = () => {
                                     <div className={`font-bold rounded-full text-center  p-2 w-[80px] ${myClass.status === 'pending' ? 'bg-red-50 text-red-700' : 'bg-green-100 text-green-700'}`}>{myClass.status}</div>
                                 </td>
                                 <td>
-                                    <div className="font-bold ">Date: {myClass.date.slice(2, 10)} <p className='text-[#EC5082]'>Time: {myClass.date.slice(11, 19)}s</p></div>
+                                    <div className="font-bold ">
+                                        Date: {myClass.date.slice(2, 10)}{" "}
+                                        <p className='text-[#EC5082]'>
+                                            Time: {myClass.date.slice(11, 19)}s
+                                        </p>
+                                    </div>
                                 </td>
-                            </tr>)
-                        }
 
-
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

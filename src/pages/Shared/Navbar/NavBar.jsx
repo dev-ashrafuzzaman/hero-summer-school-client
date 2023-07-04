@@ -4,12 +4,16 @@ import { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { FaCartPlus } from 'react-icons/fa';
 import useSelected from '../../../hooks/useSelected';
+import useAdmin from '../../../hooks/useAdmin';
+import useInstructor from '../../../hooks/useInstructor';
 
 const NavBar = () => {
     const themeData = localStorage.getItem("theme") ? localStorage.getItem("theme") : "light";
     const [theme, setTheme] = useState(themeData);
     const { user, logoutUser } = useAuth();
     const [selected] = useSelected();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     const handleTheme = (event) => {
         if (event.target.checked) {
@@ -39,10 +43,11 @@ const NavBar = () => {
             <li className='hover:text-[#BAD650] font-semibold'><Link to='/'>Home</Link></li>
             <li className='hover:text-[#BAD650] font-semibold'><Link to='/instructors'>Instructors</Link></li>
             <li className='hover:text-[#BAD650] font-semibold'><Link to='/classes'>Classes</Link></li>
-            <li className='hover:text-[#BAD650] font-semibold'><Link to={'/dashboard'}>Dashboard</Link></li>
+
             {
                 user ? <>
 
+                    <li className='hover:text-[#BAD650] font-semibold'><Link to={`${isAdmin ? '/dashboard/admin/admin-home' : isInstructor ? '/dashboard/instructor/instructor-home' : '/dashboard/student/student-home'}`}>Dashboard</Link></li>
                     <button className='hover:text-[#BAD650] font-semibold' onClick={handleLogout}><Link>Logout</Link></button>
 
 
@@ -95,13 +100,17 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-            <div className='h-[150px] bg-cover bg-center border-2 bg-[#fefff9] border-[#BAD650] top-96 fixed z-10 rounded-e-2xl'
-                style={{
-                    backgroundImage: `url("https://i.ibb.co/Z2TYJDc/BG-green-gray.png")`
-                }}
-            >
-                <h3 className='text-[#000000] text-2xl  -rotate-90 mt-16 font-bold flex justify-center items-center gap-2'><FaCartPlus></FaCartPlus> {selected.length}</h3>
-            </div>
+            {isAdmin || isInstructor ? <></> : user ?
+                <Link to='/dashboard/student/my-selected-classes'>
+                    <div className='h-[150px] bg-cover bg-center border-2 bg-[#fefff9] border-[#BAD650] top-96 fixed z-10 rounded-e-2xl'
+                        style={{
+                            backgroundImage: `url("https://i.ibb.co/Z2TYJDc/BG-green-gray.png")`
+                        }}
+                    >
+                        <h3 className='text-[#000000] text-2xl  -rotate-90 mt-16 font-bold flex justify-center items-center gap-2'><FaCartPlus></FaCartPlus> {selected.length}</h3>
+                    </div>
+                </Link> : <></>
+            }
         </div>
     );
 };

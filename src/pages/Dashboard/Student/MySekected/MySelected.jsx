@@ -1,4 +1,4 @@
-import { FaRegTrashAlt } from 'react-icons/fa';
+import { FaMoneyCheckAlt, FaRegTrashAlt } from 'react-icons/fa';
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -8,7 +8,6 @@ import SectionTitle from '../../../../components/SocialLogin/SectionTitle/Sectio
 const MySelected = () => {
     const [selected, refetch] = useSelected();
     const totalPrice = selected.reduce((sum, classes) => classes.price + sum, 0);
-
 
     const handleCartDelete = (item) => {
         Swal.fire({
@@ -52,7 +51,7 @@ const MySelected = () => {
             <div className="flex justify-evenly uppercase mb-10 font-bold items-center">
                 <h3>Total Items: {selected?.length}</h3>
                 <h3>Total Price: ${totalPrice}</h3>
-                <Link to='/dashboard/payment'><button className="btn btn-sm bg-[#EC5082] text-white ">Pay Now</button></Link>
+                <Link to='/dashboard/student/payment'><button className="btn bg-[#EC5082] text-white ">Pay All</button></Link>
             </div>
             <div className="overflow-x-auto rounded-s-2xl rounded-e-2xl">
                 <table className="table">
@@ -97,11 +96,16 @@ const MySelected = () => {
                                 <td>
                                     <div className="font-bold ">{myClass.instructor}</div>
                                 </td>
-                                <td className="">
+                                <td >
                                     <p className='bg-[#EC5082] text-white px-2 rounded-full w-[80px] font-bold text-end'>$ {myClass.price}</p>
                                 </td>
-                                <th className="">
-                                    <button onClick={() => handleCartDelete(myClass)} className="btn bg-red-500 text-white"><FaRegTrashAlt></FaRegTrashAlt></button>
+                                <th>
+                                    <Link to={`/dashboard/student/single-payment?myClass=${encodeURIComponent(JSON.stringify(myClass))}`}>
+                                        <button className="btn bg-[#EC5082] text-white me-2">
+                                            <FaMoneyCheckAlt></FaMoneyCheckAlt>Pay
+                                        </button>
+                                    </Link>
+                                    <button onClick={() => handleCartDelete(myClass)} className="btn bg-red-500 text-white me-4"><FaRegTrashAlt></FaRegTrashAlt></button>
                                 </th>
                             </tr>)
                         }

@@ -8,9 +8,9 @@ const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
 
 
-const AuthProvider = ({children}) => {
-    const [user , setUser] = useState(null);
-    const [loading , setLoading] = useState(true);
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     // Social Login with Google
@@ -60,7 +60,7 @@ const AuthProvider = ({children}) => {
             } else {
                 localStorage.removeItem('access-token')
             }
-            
+
         });
 
         return () => {
@@ -69,7 +69,7 @@ const AuthProvider = ({children}) => {
     }, [])
 
     const authDetails = {
-        user ,
+        user,
         loading,
         googleSigninUser,
         createUser,
@@ -81,7 +81,7 @@ const AuthProvider = ({children}) => {
 
     return (
         <AuthContext.Provider value={authDetails}>
-            {children} 
+            {children}
         </AuthContext.Provider>
     );
 };
