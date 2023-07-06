@@ -22,15 +22,15 @@ const CountStudentSection = () => {
                         <p className="text-5xl font-bold">24,000+</p>
                         <p className="text-2xl font-semibold text-[#5D5E5E]">Learning Content</p>
                     </div>
-                    
+
                 </div>
                 {/* Image Area */}
-                <div  className="bg-cover border bg-center h-[512px] rounded-2xl hidden md:block"
-                 style={{
-                    backgroundImage: `url(${stdGifImage})`
-                }}
+                <div className="bg-cover border bg-center h-[512px] rounded-2xl hidden md:block"
+                    style={{
+                        backgroundImage: `url(${stdGifImage})`
+                    }}
                 >
-                    
+
                 </div>
             </div>
         </div>

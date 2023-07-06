@@ -1,5 +1,6 @@
 
 
+import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../../../components/SocialLogin/SectionTitle/SectionTitle";
 import useClasses from "../../../../hooks/useClasses";
 import useEnrolled from "../../../../hooks/useEnrolled";
@@ -24,6 +25,7 @@ const MyEnrolledClasses = () => {
             <SectionTitle
                 heading={"My Enrolled Classes"}
             ></SectionTitle>
+            <Helmet heading={"HLA | Enrolled Classes"}></Helmet>
             <div className="grid grid-cols-3 gap-10">
                 {
                     filteredClasses.map(enrolledClasses => <MyEnrolledClassCard

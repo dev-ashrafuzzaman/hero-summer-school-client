@@ -86,7 +86,7 @@ export const router = createBrowserRouter([
             {
                 path: "instructor/update-classes/:id",
                 element: <InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/myClasses/${params.id}`)
+                loader: ({ params }) => fetch(`https://server.udvabonibd.com/myClasses/${params.id}`)
             },
             {
                 path: "student/student-home",

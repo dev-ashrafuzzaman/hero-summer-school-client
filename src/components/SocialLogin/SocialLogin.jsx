@@ -14,8 +14,8 @@ const SocialLogin = () => {
         googleSigninUser()
             .then(result => {
                 const logginUser = result.user;
-                const saveUser = { name: logginUser.displayName, email: logginUser.email , role: "student" , image: logginUser.photoURL }
-                fetch('http://localhost:5000/users', {
+                const saveUser = { name: logginUser.displayName, email: logginUser.email, role: "student", image: logginUser.photoURL }
+                fetch('https://server.udvabonibd.com/users', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'

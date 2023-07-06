@@ -36,9 +36,9 @@ const PopularClassessCard = ({ classes }) => {
             const selectOneCless = selected?.find(selectOne => selectOne.classesId === _id);
 
             const filteredClasses = [classes].find((myClass) =>
-            enrolledClassIds.has(myClass._id)
-        );
-       
+                enrolledClassIds.has(myClass._id)
+            );
+
 
             if (filteredClasses?._id === _id) {
                 toast.warn('Already Enrolled Check dashboard.', {
@@ -53,8 +53,8 @@ const PopularClassessCard = ({ classes }) => {
                 });
                 return
 
-            } 
-             if (selectOneCless?.classesId === _id) {
+            }
+            if (selectOneCless?.classesId === _id) {
                 toast.warn('Already selected Check dashboard.', {
                     position: "bottom-center",
                     autoClose: 4000,
@@ -67,7 +67,7 @@ const PopularClassessCard = ({ classes }) => {
                 });
             }
             else {
-                fetch('http://localhost:5000/selected', {
+                fetch('https://server.udvabonibd.com/selected', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'

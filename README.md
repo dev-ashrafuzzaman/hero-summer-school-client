@@ -6,7 +6,7 @@
 
 </br>
 
-[![N|Click](https://i.ibb.co/2jsT8yP/Group-2-2.png)]()
+[![N|Click](https://i.ibb.co/2jsT8yP/Group-2-2.png)](https://hero-language-academy.web.app/)
 
 </br>
 
@@ -33,16 +33,16 @@
 
 ## Technology Stack:
 
- - Frontend: ReactJS, CSS, Framer Motion (for animations), React Query (for data fetching), Axios (for API calls), React Hook Form (for form handling)
+- Frontend: ReactJS, CSS, Framer Motion (for animations), React Query (for data fetching), Axios (for API calls), React Hook Form (for form handling)
 
- - Backend: Node.js, Express.js, MongoDB (database), JWT (for authentication)
+- Backend: Node.js, Express.js, MongoDB (database), JWT (for authentication)
 
 </br>
 </br>
 
 ## Packages:
 
- - stripe/stripe-js: Used for integrating Stripe payment processing services into the website.
+- stripe/stripe-js: Used for integrating Stripe payment processing services into the website.
 
 - tanstack/react-query: Used for managing and caching data fetching and state management on the client-side.
 
@@ -77,4 +77,5 @@
 - daisyui: Used as a UI component library for Tailwind CSS, providing ready-to-use components and styles.
 
 - tailwindcss: Used as a utility-first CSS framework for building responsive and customizable user interfaces.
+
 ### Thank you. ...

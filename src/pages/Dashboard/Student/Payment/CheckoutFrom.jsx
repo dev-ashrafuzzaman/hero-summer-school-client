@@ -20,7 +20,7 @@ const CheckoutFrom = ({ selected, price }) => {
     const [processing, setProcessing] = useState(false)
     const [, refetch] = useSelected();
     const navigate = useNavigate();
-    
+
 
 
     useEffect(() => {
@@ -98,7 +98,7 @@ const CheckoutFrom = ({ selected, price }) => {
                 status: 'success',
                 className: selected.map(myClass => myClass.name)
             }
-          
+
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data)
@@ -121,7 +121,7 @@ const CheckoutFrom = ({ selected, price }) => {
 
     return (
         <>
-        <SectionTitle heading={"Please Payment"}></SectionTitle>
+            <SectionTitle heading={"Please Payment"}></SectionTitle>
             <form className="w-1/2 m-20 bg-green-50 mx-auto p-10 rounded-lg" onSubmit={handleSubmit}>
                 <CardElement
                     options={{

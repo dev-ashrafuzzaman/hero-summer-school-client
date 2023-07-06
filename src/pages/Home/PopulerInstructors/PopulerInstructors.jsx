@@ -5,10 +5,12 @@ import PopulerInstructorsCard from "./PopulerInstructorsCard";
 
 const PopulerInstructors = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { data: instructor = [] } = useQuery(['instructor'], async () => {
+    const { data: instructors = [] } = useQuery(['instructors'], async () => {
         const res = await axiosSecure.get('/users/instructor')
         return res.data;
-    })
+    });
+
+    const limitedInstructors = instructors.slice(0, 6);
     return (
         <>
             <div className="bg-[#121220] py-10 md:p-10 px-2 md:mb-36 mb-10" >
@@ -18,7 +20,7 @@ const PopulerInstructors = () => {
                 <div className=" md:h-[500px] grid grid-cols-1 gap-5 md:flex md:justify-center md:items-end ">
 
                     {
-                        instructor.map((instructor, index) => <PopulerInstructorsCard
+                        limitedInstructors.map((instructor, index) => <PopulerInstructorsCard
                             key={index}
                             instructor={instructor}
                         ></PopulerInstructorsCard>)

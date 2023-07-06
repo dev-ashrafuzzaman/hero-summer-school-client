@@ -13,8 +13,8 @@ const SinglePayment = () => {
     const myClassParam = searchParams.get('myClass');
     const myClass = myClassParam ? JSON.parse(decodeURIComponent(myClassParam)) : null;
 
-    console.log("0",myClass)
-    
+    console.log("0", myClass)
+
     return (
         <div className="w-full">
             <Elements stripe={stripePromise}>

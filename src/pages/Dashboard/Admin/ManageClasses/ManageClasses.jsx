@@ -25,7 +25,7 @@ const ManageClasses = () => {
         }
 
         // mongodb send data
-        fetch(`http://localhost:5000/classes/${classFeedback._id}`, {
+        fetch(`https://server.udvabonibd.com/classes/${classFeedback._id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"
@@ -47,14 +47,17 @@ const ManageClasses = () => {
                 }
             })
     }
-
+    const closeModal = () => {
+        const modal = document.getElementById('my_modal_1');
+        modal.close();
+    };
     const submitStatusApproved = (statusDetails) => {
         const ClassStatusDetails = {
             status: "approved"
         }
 
         // mongodb send data
-        fetch(`http://localhost:5000/classes/status/${statusDetails._id}`, {
+        fetch(`https://server.udvabonibd.com/classes/status/${statusDetails._id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"
@@ -82,7 +85,7 @@ const ManageClasses = () => {
         }
 
         // mongodb send data
-        fetch(`http://localhost:5000/classes/status/${statusDetails._id}`, {
+        fetch(`https://server.udvabonibd.com/classes/status/${statusDetails._id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json"
@@ -139,8 +142,9 @@ const ManageClasses = () => {
                     heading={'Manage Classes'}
                 ></SectionTitle>
 
+
                 <div className='flex justify-end items-center pe-6 mb-4'>
-                    <th className='text-center'>
+                    <div className='text-center'>
                         Status
                         <select
                             className="ml-2 px-2 py-1 border-2  border-pink-500 rounded"
@@ -152,9 +156,8 @@ const ManageClasses = () => {
                             <option value="approved">Approved</option>
                             <option value="denied">Denied</option>
                         </select>
-                    </th>
+                    </div>
                 </div>
-
                 <div className="overflow-x-auto rounded-s-2xl rounded-e-2xl">
 
                     <table className="table">
@@ -236,7 +239,7 @@ const ManageClasses = () => {
                         {/* if there is a button in form, it will close the modal */}
                         <button type='submit' className="btn bg-teal-500 text-white">Feebback submit</button>
                         <div className="tooltip" data-tip="or Press ESC">
-                            <button className="btn">Close</button>
+                            <button className="btn" onClick={closeModal}>Close</button>
                         </div>
                     </div>
                 </form>

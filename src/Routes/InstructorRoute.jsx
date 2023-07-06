@@ -3,22 +3,22 @@ import useAuth from "../hooks/useAuth";
 import useInstructor from "../hooks/useInstructor";
 
 
-const InstructorRoute = ({children}) => {
+const InstructorRoute = ({ children }) => {
 
-    const {user , loading} = useAuth();
+    const { user, loading } = useAuth();
     const [isInstructor, isInstructorLoading] = useInstructor();
     const location = useLocation();
-    
 
 
-    if(loading || isInstructorLoading) {
+
+    if (loading || isInstructorLoading) {
         return <progress className="progress w-full text-center"></progress>
     }
 
     if (user && isInstructor) {
         return children;
     }
-    return <Navigate to="/" state={{from: location}} replace></Navigate>
+    return <Navigate to="/" state={{ from: location }} replace></Navigate>
 };
 
 export default InstructorRoute;

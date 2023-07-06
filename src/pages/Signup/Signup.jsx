@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
-    const {createUser, updateProfileUser} = useAuth();
+    const { createUser, updateProfileUser } = useAuth();
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [focusName, setFocusName] = useState(false)
@@ -51,46 +51,55 @@ const Signup = () => {
     }
 
     // React Form Control User Register Area
-    const onSubmit = (data) => {
-
+    const onSubmit = async (data) => {
         if (data.password === data.confirmPassword) {
-            console.log(data)
-            setFocusPass(false)
-            setFocusConPass(false)
+            try {
+                console.log(data);
+                setFocusPass(false);
+                setFocusConPass(false);
 
-            // Create User ---------------
-            createUser(data.email, data.password)
-                .then(result =>{
-                    const createUserNew = result.user;
-                    console.log(createUserNew);
-                    updateProfileUser(data.name , data.photoURL)
-                    .then(() => {
-                        const saveUser = { name: data.name, email: data.email , role:"student", image: data.photoURL }
-                        fetch('http://localhost:5000/users', {
-                            method: "POST",
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(saveUser)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                if (data.insertedId) {
-                                    Swal.fire({
-                                        position: 'top-end',
-                                        icon: 'success',
-                                        title: 'Your Account has been Create Sucessfull',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    })
-                                    navigate('/')
-                                }
-                            })
+                const createUserResult = await createUser(data.email, data.password);
+                const createUserNew = createUserResult.user;
+                console.log(createUserNew);
 
-                    })
-                })
+                await updateProfileUser(data.name, data.photoURL);
+
+                const saveUser = { name: data.name, email: data.email, role: "student", image: data.photoURL };
+                const response = await fetch('https://server.udvabonibd.com/users', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                });
+
+                const responseData = await response.json();
+                if (responseData.insertedId) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your Account has been created successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/');
+                }
+            } catch (error) {
+                // Handle error and display appropriate message to the user
+                console.error(error);
+                toast.error('An error occurred. Please try again.', {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
         } else {
-            toast.error('Passwords are not same! Try again...', {
+            toast.error('Passwords do not match! Please try again...', {
                 position: "top-right",
                 autoClose: 2500,
                 hideProgressBar: false,
@@ -100,16 +109,15 @@ const Signup = () => {
                 progress: undefined,
                 theme: "light",
             });
-            setFocusPass('notMatch')
-            setFocusConPass('notMatch')
-
+            setFocusPass('notMatch');
+            setFocusConPass('notMatch');
         }
-    }
+    };
     return (
         <>
-        <Helmet>
-            <title>HLA | Sign up</title>
-        </Helmet>
+            <Helmet>
+                <title>HLA | Sign up</title>
+            </Helmet>
             <div className="flex justify-center bg-[#EEF2F6] pt-28 pb-44">
                 <div className="card shadow-2xl bg-base-100 p-10 w-[700px]">
                     <div className="card-body">

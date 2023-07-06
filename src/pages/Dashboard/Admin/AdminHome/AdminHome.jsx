@@ -66,7 +66,7 @@ const AdminHome = () => {
                         <p className='text-xl font-semibold'>Total Instructor</p>
                         <p className='text-4xl font-bold'>{stats.totalInstructor}</p>
                     </div>
-                    <img className='w-20 opacity-50' src="https://cdn.onlinewebfonts.com/svg/img_113883.png" alt="" />
+                    <img className='w-20 opacity-50' src="https://w1.pngwing.com/pngs/828/597/png-transparent-teacher-icon-laptop-microphone-computer-software-icon-design-computer-monitors-education-black-and-white.png" alt="" />
                 </div>
 
                 <div className='flex justify-between items-center bg-gradient-to-r from-teal-500 to-teal-500/40 px-6 py-8 rounded-xl'>

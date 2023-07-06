@@ -4,18 +4,18 @@ import useAuth from "./useAuth";
 
 
 const useInstructor = () => {
-    const {user , loading} = useAuth();
+    const { user, loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
-    const {data: isInstructor , isLoading: isInstructorLoading} = useQuery({
-        queryKey:['isInstructor' , user?.email],
+    const { data: isInstructor, isLoading: isInstructorLoading } = useQuery({
+        queryKey: ['isInstructor', user?.email],
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/instructor/${user?.email}`);
-            console.log('is instructor response' , res)
+            console.log('is instructor response', res)
             return res.data.instructor;
         }
     })
-    return [isInstructor , isInstructorLoading]
+    return [isInstructor, isInstructorLoading]
 };
 
 export default useInstructor;

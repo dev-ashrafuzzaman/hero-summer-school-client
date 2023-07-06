@@ -1,7 +1,7 @@
 import { MdOutlineMail, MdVerified } from "react-icons/md";
 import { RiPresentationLine } from "react-icons/ri";
 
-const InstructorCard = ({instructor}) => {
+const InstructorCard = ({ instructor }) => {
     const {
         name,
         image,
@@ -10,7 +10,7 @@ const InstructorCard = ({instructor}) => {
     } = instructor;
     return (
         <>
-        <div className="border-2 border-white card bg-base-100 shadow-xl">
+            <div className="border-2 border-white card bg-base-100 shadow-xl">
                 <div className='bg-red-500  pb-8 flex flex-col items-center justify-end h-[250px] rounded-2xl bg-cover bg-center'
                     style={{
                         backgroundImage: `url(${image})`

@@ -13,9 +13,9 @@ const Instructors = () => {
     return (
         <div className='grid md:grid-cols-3 md:gap-10 gap-6 max-w-screen-xl mx-auto md:py-32 py-20 px-4 md:px-0'>
             {
-                instructors.map((instructor , index) => <InstructorCard
-                key={index}
-                instructor={instructor}
+                instructors.map((instructor, index) => <InstructorCard
+                    key={index}
+                    instructor={instructor}
                 ></InstructorCard>)
             }
         </div>

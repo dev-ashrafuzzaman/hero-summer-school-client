@@ -42,7 +42,7 @@ const UpdateClass = () => {
                     }
     
                     // mongodb send data
-                    fetch(`http://localhost:5000/myClasses/${classDetails._id}`, {
+                    fetch(`https://server.udvabonibd.com/myClasses/${classDetails._id}`, {
                         method: 'PATCH',
                         headers: {
                             "content-type": "application/json"
@@ -77,7 +77,7 @@ const UpdateClass = () => {
                     }
     
                     // mongodb send data
-                    fetch(`http://localhost:5000/myClasses/${classDetails._id}`, {
+                    fetch(`https://server.udvabonibd.com/myClasses/${classDetails._id}`, {
                         method: 'PATCH',
                         headers: {
                             "content-type": "application/json"

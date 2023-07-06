@@ -18,7 +18,7 @@ const Home = () => {
             <CallSection></CallSection>
             <PopulerInstructors></PopulerInstructors>
             <CountStudentSection></CountStudentSection>
-            
+
         </div>
     );
 };

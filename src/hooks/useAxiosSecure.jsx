@@ -3,17 +3,17 @@ import axios from 'axios';
 import useAuth from './useAuth';
 import { useEffect } from 'react';
 
- 
-  const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
-  });
+
+const axiosSecure = axios.create({
+  baseURL: 'https://server.udvabonibd.com'
+});
 
 const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { logoutUser } = useAuth();
 
   useEffect(() => {
-  
+
     axiosSecure.interceptors.request.use((config) => {
       const token = localStorage.getItem('access-token');
       if (token) {
