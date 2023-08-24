@@ -9,6 +9,14 @@
 [![N|Click](https://i.ibb.co/2jsT8yP/Group-2-2.png)](https://hero-language-academy.web.app/)
 
 </br>
+##Access Credential
+</br>
+Admin Email: admin@hla.com </br>
+Admin Password: 1234A!
+</br>
+Instructor Email: mosarrof@hla.com </br>
+Instructor Password: 1234A!
+</br>
 
 ## Features:
 
